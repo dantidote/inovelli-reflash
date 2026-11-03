@@ -46,6 +46,12 @@ OpenOCD reads the .s37 files natively.
   "downloader cable" (a 2x5 IDC cable on each side of a tiny PCB), which gets from Pi jumper
   wires down to the 1.27 mm connector. Inovelli's own harness works too if you have one.
 
+![Pi 4 on a USB power bank, four jumper wires into the 2.54 mm side of the passive adapter, its 1.27 mm ribbon connector holding the five Samtec pins](images/rig-pi4-adapter-samtec-pins.jpg)
+
+The whole rig: Pi 4 on a USB power bank (nothing mains-powered near the switch), four jumper
+wires to the 2.54 mm side of the adapter, and its 1.27 mm ribbon connector holding the five
+Samtec pins that go into the switch's debug pads.
+
 ## Wiring
 
 Switch pads: a single row of 5 plated holes at 1.27 mm pitch, reachable through a slot in the

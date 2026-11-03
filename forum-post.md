@@ -27,6 +27,10 @@ You can see the lock yourself: with the factory state OpenOCD gets a valid SWD I
 
 Apart from the Pi, that is under $10 of parts, and nothing in the chain is single-purpose.
 
+![The rig: Pi 4 on a power bank, jumper wires into the passive adapter, 1.27 mm ribbon ending in the Samtec pins](https://raw.githubusercontent.com/dantidote/inovelli-reflash/main/images/rig-pi4-adapter-samtec-pins.jpg)
+
+The whole rig on the bench: Pi 4 running off a USB power bank so nothing mains-powered is near the switch, four jumper wires into the 2.54 mm side of the adapter, and the 1.27 mm ribbon connector holding the five Samtec pins.
+
 Build on the Pi (about 10 minutes on a Pi 4). `pi-setup.sh` in the repo does exactly this:
 
 ```bash
