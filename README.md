@@ -154,6 +154,5 @@ master is used here.
 - `flash-inovelli.sh`: probe / unlock / flash / bl / full.
 - `align_srec.py`: 4-byte-aligns an S-record image with 0xFF padding and verifies the result.
 - `z2m_batch_ota.py`, `z2m_rejoin_ota.py`, `z2m_watch_ota.py`: the Zigbee2MQTT side.
-- `forum-post.md`: the write-up posted on the Inovelli community forum.
 
 MIT licensed. Not affiliated with Inovelli; the firmware images are theirs.
