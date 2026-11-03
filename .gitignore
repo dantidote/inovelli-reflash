@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.s37
+*.zip
+*.log
+*.err
