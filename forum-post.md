@@ -1,6 +1,8 @@
 **Title:** Fixing "locked bootloader" Blue 2-1 switches (OTA hits 100% but stays on 2.18) with a Raspberry Pi instead of a J-Link
 
-**TL;DR:** The 2022-production VZM31-SN that cannot take the 3.04 OTA have the EFR32's factory *debug lock* set. Inovelli's harness procedure clears it with a J-Link and Simplicity Commander. The same thing works with a Raspberry Pi's GPIO pins as the SWD probe and current OpenOCD, which gained Silicon Labs Series 2 support this spring. I did 19 switches in one evening with four jumper wires. Scripts and a longer README: https://github.com/dantidote/inovelli-reflash
+**Why this post exists:** if you have more than a handful of the 2022 "locked bootloader" switches, the official fix means waiting on one of the few loaner J-Link programmers support has to pass around, or buying a J-Link yourself, which costs several hundred dollars for a tool you will use once. A Raspberry Pi you probably already own, four jumper wires and a couple of dollars in pins do exactly the same job. I did my 19 switches in one evening this way and did not touch a J-Link.
+
+**TL;DR:** The 2022-production VZM31-SN that cannot take the 3.04 OTA have the EFR32's factory *debug lock* set. Inovelli's harness procedure clears it with a J-Link and Simplicity Commander. The same thing works with the Pi's GPIO pins as the SWD probe and current OpenOCD, which gained Silicon Labs Series 2 support this spring. Scripts and a longer README: https://github.com/dantidote/inovelli-reflash
 
 ## The symptom and the actual cause
 
@@ -22,6 +24,8 @@ You can see the lock yourself: with the factory state OpenOCD gets a valid SWD I
 - Pins for the switch's 1.27 mm debug pads. I used a Samtec DWM-08-55-L-S-380 header (Mouser 200-DWM0855LS380): 1.27 mm pitch with long 0.380 in pins, which reach the board through the slot in the front plate; use 5 of the 8 positions.
 - To get from the Pi's 2.54 mm jumper wires down to 1.27 mm: the passive adapter sold on AliExpress as the CC Debugger "downloader cable" (a tiny PCB with a 2x5 2.54 mm IDC cable on one side and a 2x5 1.27 mm IDC cable on the other). Inovelli's own harness works too if you have one.
 - OpenOCD built from git master. The Series 2 support (`target/silabs/xg21.cfg`, the efm32 flash driver update and the DCI unlock commands, contributed by Silicon Labs) was merged in April 2026 and is **not** in any release, distro package or xpack build yet.
+
+Apart from the Pi, that is under $10 of parts, and nothing in the chain is single-purpose.
 
 Build on the Pi (about 10 minutes on a Pi 4). `pi-setup.sh` in the repo does exactly this:
 

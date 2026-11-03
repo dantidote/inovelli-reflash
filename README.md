@@ -2,9 +2,11 @@
 
 Some Inovelli Blue 2-1 switches (VZM31-SN, 2022 production, firmware 2.18) cannot take the
 3.04 OTA: the transfer reaches 100%, the switch reboots, and it still reports 2.18. Inovelli's
-fix is a one-time SWD reflash of two images with a J-Link and Simplicity Commander. This repo
-does the same thing with OpenOCD driving a Raspberry Pi's GPIO pins as the SWD probe, so no
-J-Link is needed. 19 switches were done this way in one evening.
+fix is a one-time SWD reflash of two images with a J-Link and Simplicity Commander, which in
+practice means waiting for one of the few loaner programmers their support can lend out, or
+buying a several-hundred-dollar J-Link for a single use. This repo does the same thing with
+OpenOCD driving a Raspberry Pi's GPIO pins as the SWD probe: a Pi, four jumper wires and a
+few dollars in pins. 19 switches were done this way in one evening.
 
 ## What is actually wrong
 
